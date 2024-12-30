@@ -19,5 +19,8 @@ find the script for the watermeter, and feel free to customize and translate
 ### template for the board
 {"NAME":"watermeter","GPIO":[1,1,1,1,1,1,0,0,1,1,1,1,1,1],"FLAG":0,"BASE":18}
 
+### settings
+![](./assets/settings.png)
+
 ### credits
 kudos to [Thomas Gorjup](https://wiki.gorjup.de/doku.php?id=public:gaszaehler)  for inspiring
