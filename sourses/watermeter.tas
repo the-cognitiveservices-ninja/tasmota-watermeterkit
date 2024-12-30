@@ -1,0 +1,69 @@
+>D
+p:m1=0
+p:g1=0
+p:g2=0
+p:month1=0
+p:month2=0
+p:month3=0
+p:gesamt=0
+p:c1=0
+p:watertotal=0
+s1=0
+h1=0
+hr=0
+dy=0
+waterinit=0
+
+>S
+h1=s1-m1
+
+hr=hours
+dy=day
+if chg[hr]>0
+ and hr==0
+  then
+   m1=s1
+   g2=g1
+   g1=h1
+   month1=month1+h1
+   gesamt=gesamt+h1
+   if chg[dy]<2
+    and dy==1
+     then
+      month3=month2
+      month2=month1
+      month1=0
+   endif
+   svars
+endif
+
+if upsecs%tper==0{
+=>Publish tasmota/%topic%/main/total %2h1%
+=>Publish tele/%topic%/main/yesterday %2g1%
+=>Publish tele/%topic%/main/db_yesterday %2g2%
+=>Publish tele/%topic%/main/value %2s1%
+=>Publish tele/%topic%/main/total %3watertotal%
+=>Publish tele/%topic%/json {"watertotal": "%2watertotal%", "value": "%2s1%", "today_m3": "%2h1%", "yesterday_m3": "%2g1%", "db_yesterday_m3": "%2g2%", "month_m3": "%2month1%", "last_month_m3": "%2month2%", "db_last_month_m3": "%2month3%", "total_m3": "%2gesamt%"}
+}
+
+>T
+s1=Counter#C1*0.001
+c1=Counter#C1
+watertotal=(c1*0.001)+waterinit
+
+>W
+Wasser gezählt: {m} %3s1% m³
+Zählerstand: {m} %3watertotal% m³
+============
+Verbrauch:
+---------------------
+Heute: {m} %2h1% m³
+---------------------
+Gestern: {m} %2g1% m³
+---------------------
+Vorgestern: {m} %2g2% m³
+---------------------
+Aktueller Monat: {m} %2month1% m³
+Letzter Monat: {m} %2month2% m³
+Vorletzter Monat: {m} %2month3% m³
+Gesamt: {m} %2gesamt% m³
