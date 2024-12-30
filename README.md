@@ -14,7 +14,10 @@ create a custom firmware with the following files in platform.io with the latest
 find a user_config_override.h with all the needed switches
 
 ### watermeter.tas
-find the script for the watermeter, and feel free to customize
+find the script for the watermeter, and feel free to customize and translate
 
 ### template for the board
 {"NAME":"watermeter","GPIO":[1,1,1,1,1,1,0,0,1,1,1,1,1,1],"FLAG":0,"BASE":18}
+
+### credits
+kudos to [Thomas Gorjup](https://wiki.gorjup.de/doku.php?id=public:gaszaehler)  for inspiring
