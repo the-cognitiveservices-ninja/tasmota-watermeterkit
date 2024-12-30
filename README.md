@@ -1,5 +1,5 @@
 # tasmota-watermeterkit
-an alternative firmware for the water meter from watermeterkit.nl based on tasmota
+an alternative firmware for the water meter from [watermeterkit.nl](https://watermeterkit.nl/) based on [tasmota](https://tasmota.github.io/docs/)
 
 watermeterkit.nl is an OOTB and stable water meter, but it is linked to Homeassist's native API.  
 With these files you can create a customer Tasmota firmware,  you can make use of MQTT, and use the water meter without the boundaries of home assists
