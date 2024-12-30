@@ -5,7 +5,7 @@ watermeterkit.nl is an OOTB and stable water meter, but it is linked to Homeassi
 With these files you can create a customer Tasmota firmware,  you can make use of MQTT, and use the water meter without the boundaries of home assists
 
 ## Result
-
+the result should look similar to the screenshot below
 ![result](./assets/result.png)
 
 ## Compile
