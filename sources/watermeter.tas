@@ -5,14 +5,14 @@ p:g2=0
 p:month1=0
 p:month2=0
 p:month3=0
-p:gesamt=0
+p:total=0
 p:c1=0
 p:watertotal=0
 s1=0
 h1=0
 hr=0
 dy=0
-waterinit=0
+p:waterinit=554.711
 
 >S
 h1=s1-m1
@@ -26,7 +26,7 @@ if chg[hr]>0
    g2=g1
    g1=h1
    month1=month1+h1
-   gesamt=gesamt+h1
+   total=total+h1
    if chg[dy]<2
     and dy==1
      then
@@ -43,7 +43,7 @@ if upsecs%tper==0{
 =>Publish tele/%topic%/main/db_yesterday %2g2%
 =>Publish tele/%topic%/main/value %2s1%
 =>Publish tele/%topic%/main/total %3watertotal%
-=>Publish tele/%topic%/json {"watertotal": "%2watertotal%", "value": "%2s1%", "today_m3": "%2h1%", "yesterday_m3": "%2g1%", "db_yesterday_m3": "%2g2%", "month_m3": "%2month1%", "last_month_m3": "%2month2%", "db_last_month_m3": "%2month3%", "total_m3": "%2gesamt%"}
+=>Publish tele/%topic%/json {"watertotal": "%2watertotal%", "value": "%2s1%", "today_m3": "%2h1%", "yesterday_m3": "%2g1%", "db_yesterday_m3": "%2g2%", "month_m3": "%2month1%", "last_month_m3": "%2month2%", "db_last_month_m3": "%2month3%", "total_m3": "%2total%"}
 }
 
 >T
@@ -52,18 +52,18 @@ c1=Counter#C1
 watertotal=(c1*0.001)+waterinit
 
 >W
-Wasser gezählt: {m} %3s1% m³
-Zählerstand: {m} %3watertotal% m³
+counted: {m} %3s1% m³
+utility meter: {m} %3watertotal% m³
 ============
-Verbrauch:
+consumption:
 ---------------------
-Heute: {m} %2h1% m³
+today: {m} %2h1% m³
 ---------------------
-Gestern: {m} %2g1% m³
+yesterday: {m} %2g1% m³
 ---------------------
-Vorgestern: {m} %2g2% m³
+3 days ago: {m} %2g2% m³
 ---------------------
-Aktueller Monat: {m} %2month1% m³
-Letzter Monat: {m} %2month2% m³
-Vorletzter Monat: {m} %2month3% m³
-Gesamt: {m} %2gesamt% m³
+actual month: {m} %2month1% m³
+month before: {m} %2month2% m³
+3 month ago: {m} %2month3% m³
+total: {m} %2total% m³
