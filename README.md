@@ -17,7 +17,7 @@ find a user_config_override.h with all the needed switches
 find the script for the watermeter, and feel free to customize and translate
 
 ### template for the board
-{"NAME":"watermeter","GPIO":[1,1,1,1,1,1,0,0,1,1,1,1,1,1],"FLAG":0,"BASE":18}
+{"NAME":"watermeter","GPIO":[1,1,1,1,640,608,0,0,1,384,1,1,1,1],"FLAG":0,"BASE":18}
 
 ### settings
 ![](./assets/settings.png)
