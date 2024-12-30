@@ -6,7 +6,7 @@ With these files you can create a customer Tasmota firmware,  you can make use o
 
 ## Result
 
-![](./result.png)
+![](./assets/result.png)
 
 ## Compile
 create a custom firmware with the following files in platform.io with the latest tasmota firmware sources.
